@@ -1,0 +1,99 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model DataRepository
+@{
+}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello, C# STL!</title>
+</head>
+<body>
+    @*Hello, world!*@
+
+    <table border="1" style="">
+        <caption>C# Standart Library</caption>
+        <tr><th>№ п/п</th><th>Имя</th><th>Фамилия</th><th>Возраст</th></tr>
+        @for (int i = 0; i < @Model.list.Count; i++)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@Model.list[i].FirstName</td>
+                <td>@Model.list[i].LastName</td>
+                <td>@Model.list[i].Age</td>
+            </tr>
+        }
+    </table>
+    <div>
+        @Model.list.Count()
+    </div>
+
+    <table border="1" style="">
+        <caption>My stack</caption>
+        <tr><th>№ п/п</th><th>Имя</th><th>Фамилия</th><th>Возраст</th></tr>
+        @{int j = 0;}
+        @while (@Model.stack.Count > 0)
+        {
+            <tr>
+                @{j = j + 1; }
+                <td>@j</td>
+                <td>@Model.stack.Peek().FirstName</td>
+                <td>@Model.stack.Peek().LastName</td>
+                <td>@Model.stack.Peek().Age</td>
+            </tr>
+            <!--@Model.stack.Pop();-->
+        }
+    </table>
+
+    <table border="1" style="">
+        <caption>Sorted set</caption>
+        <tr><th>№ п/п</th><th>Имя</th><th>Фамилия</th><th>Год рождения</th></tr>
+        @{j = 0;}
+        @foreach (Person p in @Model.set)
+        {
+            j = j + 1;
+            <tr>
+                <td>@j</td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.Birth</td>
+            </tr>
+        }
+    </table>
+
+    <table border="1" style="">
+        <caption>Queue</caption>
+        <tr><th>№ п/п</th><th>Имя</th><th>Фамилия</th><th>Год рождения</th></tr>
+        @{j = 0;}
+        @foreach (Person p in @Model.queue)
+        {
+            j = j + 1;
+            <tr>
+                <td>@j</td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.Birth</td>
+            </tr>
+        }
+    </table>
+
+    @*<table border="1" style="">
+        <caption>Queue</caption>
+        <tr><th>№ п/п</th><th>Имя</th><th>Фамилия</th><th>Год рождения</th></tr>
+        @{j = 0;}
+        @while (@Model.queue.Count > 0)
+        {
+            Person pp = @Model.queue.Dequeue();
+            j = j + 1;
+            <tr>
+                <td>@j</td>
+                <td>@pp.FirstName</td>
+                <td>@pp.LastName</td>
+                <td>@pp.?Birth</td>
+            </tr>
+
+        }
+    </table>*@
+
+</body>
